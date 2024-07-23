@@ -38,6 +38,7 @@ dependencies:
   device_preview:
   bloc:
   flutter_bloc:
+  dio:
 
 dev_dependencies:
   flutter_test:
