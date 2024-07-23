@@ -5,10 +5,12 @@ import 'package:findanimals/features/home/presentation/manager/state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'image_bigger.dart';
+
 class AnimalCard extends StatelessWidget {
-  AnimalCard({super.key, required this.imagePath});
-  final String imagePath;
-  String dogName = "Rock", dogAge = " 8 months", dogType = "Wild one";
+  AnimalCard({super.key, required this.imagePath, required this.dogName});
+  final String imagePath,dogName;
+  String  dogAge = " 8 months", dogType = "Wild one";
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AppCubit, AppState>(
@@ -40,10 +42,7 @@ class AnimalCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30),
                       child: InkWell(
                         onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (_) {
-                                return Adopt();
-                              }));
+                          image_bigger(context, imagePath);
                         },
                         child: Container(
                           child: Image.asset(
@@ -57,12 +56,12 @@ class AnimalCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(500),
                     ),
                   ),
-                  Column(
+                  Column(crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top: 10, left: 10),
                         child: Text(
-                          "Dog Name",
+                          "$dogName",
                           style: Fonts.dogName,
                         ),
                       ),
@@ -97,6 +96,21 @@ class AnimalCard extends StatelessWidget {
                     padding:const EdgeInsets.only(bottom: 70, left: 30, top: 30),
                     child: InkWell(
                       onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) {
+                              return Adopt(dogName: dogName,);
+                            }));
+                      },
+                      child: Icon(
+                        Icons.info_rounded,size: 28,
+                        color:Colors.orange
+                      ),
+                    ),
+                  )
+                  /*Padding(
+                    padding:const EdgeInsets.only(bottom: 70, left: 30, top: 30),
+                    child: InkWell(
+                      onTap: () {
                         context.read<AppCubit>().choosenHeart();
                       },
                       child: Icon(
@@ -106,7 +120,7 @@ class AnimalCard extends StatelessWidget {
                             : Color.fromARGB(129, 0, 0, 0),
                       ),
                     ),
-                  )
+                  )*/
                 ],
               ),
             ),

@@ -4,7 +4,7 @@ abstract class Fonts {
   static const textStyle1 = TextStyle(
       fontWeight: FontWeight.bold,
       color: Colors.black,
-       fontFamily: "Schyler",
+      fontFamily: "Schyler",
       fontSize: 26);
 
   static const textStyle2 = TextStyle(
@@ -37,4 +37,15 @@ abstract class Fonts {
       color: Color.fromARGB(167, 0, 0, 0),
       //fontFamily: "Schyler",
       fontSize: 13);
+
+  static const first = TextStyle(
+    color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30, //fontFamily: 'Schyler',
+    shadows: [
+      Shadow(blurRadius: 5.0, color: Color.fromARGB(255, 94, 87, 87), offset: Offset(2, 2),)]);
+
+  static const second = TextStyle(
+      fontWeight: FontWeight.bold,fontSize: 20,color: Colors.black38);
+
+  static const third = TextStyle(
+      color:Color.fromARGB(255, 114, 108, 108));
 }

@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class adopt_body extends StatelessWidget {
-  const adopt_body({super.key});
+  const adopt_body({super.key, required this.dogName});
+  final String dogName;
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +18,14 @@ class adopt_body extends StatelessWidget {
           InkWell(
             onTap: () {
               context.read<AppCubit>().choosenHeart();
+              context.read<AppCubit>().isavailable();
             },
             child: BlocBuilder<AppCubit, AppState>(
               builder: (context, state) {
                 return Icon(
                   Icons.favorite,
-                  color: context.read<AppCubit>().heart
-                      ? Colors.orange
+                  color: context.read<AppCubit>().heart&context.read<AppCubit>().is_available
+                      ? Colors.red
                       : Color.fromARGB(129, 0, 0, 0),
                 );
               },
@@ -33,7 +35,7 @@ class adopt_body extends StatelessWidget {
       ),
       body: Column(
         children: [
-          fact_adopt(),
+          fact_adopt(dogName: dogName,),
           Photo(),
           About()
         ],
