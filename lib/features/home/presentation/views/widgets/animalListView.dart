@@ -1,4 +1,3 @@
-import 'package:findanimals/features/adopt/main_adopt.dart';
 import 'package:findanimals/features/home/presentation/views/widgets/animalCard.dart';
 import 'package:flutter/material.dart';
 
@@ -25,17 +24,7 @@ class AnimalListView extends StatelessWidget {
       scrollDirection: Axis.vertical,
       itemCount: animals.length,
       itemBuilder: (context, index) {
-        return GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Adopt(),
-              ),
-            );
-          },
-          child: AnimalCard(imagePath: animals[index]),
-        );
+        return AnimalCard(imagePath: animals[index]);
       },
     );
   }

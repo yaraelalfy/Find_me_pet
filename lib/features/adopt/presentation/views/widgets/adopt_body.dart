@@ -1,5 +1,6 @@
-import 'package:findanimals/features/adopt/presentation/fact_adopt.dart';
-import 'package:findanimals/features/adopt/presentation/photo.dart';
+import 'package:findanimals/features/adopt/presentation/views/widgets/About.dart';
+import 'package:findanimals/features/adopt/presentation/views/widgets/fact_adopt.dart';
+import 'package:findanimals/features/adopt/presentation/views/widgets/photo.dart';
 import 'package:findanimals/features/home/presentation/manager/cubit.dart';
 import 'package:findanimals/features/home/presentation/manager/state.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,8 @@ class adopt_body extends StatelessWidget {
       body: Column(
         children: [
           fact_adopt(),
-          Photo()
+          Photo(),
+          About()
         ],
       ),
     );

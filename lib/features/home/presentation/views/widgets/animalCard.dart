@@ -1,13 +1,14 @@
 import 'package:findanimals/core/styles.dart';
+import 'package:findanimals/features/adopt/presentation/views/main_adopt.dart';
 import 'package:findanimals/features/home/presentation/manager/cubit.dart';
 import 'package:findanimals/features/home/presentation/manager/state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AnimalCard extends StatelessWidget {
-  const AnimalCard({super.key, required this.imagePath});
+  AnimalCard({super.key, required this.imagePath});
   final String imagePath;
-
+  String dogName = "Rock", dogAge = " 8 months", dogType = "Wild one";
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AppCubit, AppState>(
@@ -37,13 +38,24 @@ class AnimalCard extends StatelessWidget {
                     margin: EdgeInsets.all(13),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(30),
-                      child: Image.asset(
-                        "$imagePath",
-                        fit: BoxFit.cover,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) {
+                                return Adopt();
+                              }));
+                        },
+                        child: Container(
+                          child: Image.asset(
+                            "$imagePath",
+                            fit: BoxFit.contain,
+                          ),
+                        ),
                       ),
                     ),
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(500)),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(500),
+                    ),
                   ),
                   Column(
                     children: [
@@ -81,9 +93,8 @@ class AnimalCard extends StatelessWidget {
                   SizedBox(
                     width: 20,
                   ),
-                  /*Padding(
-                    padding:
-                        const EdgeInsets.only(bottom: 70, left: 30, top: 30),
+                  Padding(
+                    padding:const EdgeInsets.only(bottom: 70, left: 30, top: 30),
                     child: InkWell(
                       onTap: () {
                         context.read<AppCubit>().choosenHeart();
@@ -95,7 +106,7 @@ class AnimalCard extends StatelessWidget {
                             : Color.fromARGB(129, 0, 0, 0),
                       ),
                     ),
-                  )*/
+                  )
                 ],
               ),
             ),
