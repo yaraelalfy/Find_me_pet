@@ -2,13 +2,16 @@
 import 'package:findanimals/features/home/presentation/views/widgets/animalListView.dart';
 import 'package:flutter/material.dart';
 
+import 'drawer_screen.dart';
+import 'widgets/random_fact.dart';
+
 class MainHome extends StatelessWidget {
   const MainHome({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(249, 255, 255, 255),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Center(
           child: Container(
@@ -22,7 +25,13 @@ class MainHome extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
       ),
-      body: AnimalListView(),
+      drawer: Drawer(child: DrawerScreen(),),
+      body: Column(
+        children: [
+          RandomFact(),
+          Expanded(child: AnimalListView()),
+        ],
+      ),
     );
   }
 }

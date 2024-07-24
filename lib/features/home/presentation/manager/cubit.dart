@@ -5,6 +5,7 @@ class AppCubit extends Cubit<AppState> {
   AppCubit() : super(InitialState());
   bool heart = false;
   bool is_available = false;
+  bool add=false;
 
   void choosenHeart() {
     heart = !heart;
@@ -15,5 +16,9 @@ class AppCubit extends Cubit<AppState> {
   void isavailable() {
     is_available = heart;
     emit(ChoosenFavouriteColor());
+  }
+  void is_added() {
+    add=true;
+    emit(AnimalsAdded());
   }
 }

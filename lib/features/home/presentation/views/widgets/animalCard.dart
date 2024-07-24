@@ -1,5 +1,5 @@
 import 'package:findanimals/core/styles.dart';
-import 'package:findanimals/features/adopt/presentation/views/main_adopt.dart';
+import 'package:findanimals/features/detail/presentation/views/main_details.dart';
 import 'package:findanimals/features/home/presentation/manager/cubit.dart';
 import 'package:findanimals/features/home/presentation/manager/state.dart';
 import 'package:flutter/material.dart';
@@ -8,9 +8,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'image_bigger.dart';
 
 class AnimalCard extends StatelessWidget {
-  AnimalCard({super.key, required this.imagePath, required this.dogName});
-  final String imagePath,dogName;
-  String  dogAge = " 8 months", dogType = "Wild one";
+  AnimalCard({super.key, required this.imagePath, required this.dogName, required this.dogAge, required this.dogType, required this.choosen});
+  final String imagePath,dogName,dogAge, dogType;
+  final bool choosen;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AppCubit, AppState>(
@@ -68,7 +68,7 @@ class AnimalCard extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 6, left: 10),
                         child: Text(
-                          "dog type",
+                          "$dogType",
                           style: Fonts.dogType,
                         ),
                       ),
@@ -81,7 +81,7 @@ class AnimalCard extends StatelessWidget {
                               color: Colors.deepOrange[200],
                             ),
                             Text(
-                              "8 months",
+                              " $dogAge months",
                               style: Fonts.dogAge,
                             ),
                           ],
@@ -92,19 +92,16 @@ class AnimalCard extends StatelessWidget {
                   SizedBox(
                     width: 20,
                   ),
-                  Padding(
-                    padding:const EdgeInsets.only(bottom: 70, left: 30, top: 30),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (_) {
-                              return Adopt(dogName: dogName,);
-                            }));
-                      },
-                      child: Icon(
-                        Icons.info_rounded,size: 28,
-                        color:Colors.orange
-                      ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) {
+                            return Details(dogName: dogName, imagePath: imagePath,);
+                          }));
+                    },
+                    child: Icon(
+                      Icons.info_rounded,size: 28,
+                      color:Colors.orange
                     ),
                   )
                   /*Padding(

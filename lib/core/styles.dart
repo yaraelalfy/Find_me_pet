@@ -48,4 +48,11 @@ abstract class Fonts {
 
   static const third = TextStyle(
       color:Color.fromARGB(255, 114, 108, 108));
+
+  /*static const successText = TextStyle(
+      color: Colors.green, fontSize: 20, fontWeight: FontWeight.bold);*/
+  static const successText = TextStyle(color: Colors.green,fontSize:22,fontWeight: FontWeight.bold,
+    shadows: [Shadow(blurRadius: 5.0, color: Colors.greenAccent, offset: Offset(1, 1),),],);
+
+
 }
