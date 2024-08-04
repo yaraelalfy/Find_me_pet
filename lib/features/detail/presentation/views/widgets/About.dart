@@ -18,7 +18,7 @@ class About extends StatelessWidget {
           SizedBox(height: 10,),
           Text("She is shy at first, but will warm up when she's comfortable. She is not a ranch dog that guards animals and property as she would rather be with her people; but she is comfortable around animals. She plays well with other dogs."
             ,style:Fonts.third,),
-          SizedBox(height: 74,),
+          SizedBox(height: 79,),
           //Spacer(),
           Row(
             children: [

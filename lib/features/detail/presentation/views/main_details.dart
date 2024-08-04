@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'widgets/detailt_body.dart';
 
 class Details extends StatelessWidget {
-  const Details({super.key, required this.dogName, required this.imagePath});
-  final String dogName,imagePath;
+  const Details({super.key, required this.dogName, required this.imagePath, required this.type, required this.age});
+  final String dogName,imagePath,type,age;
 
   @override
   Widget build(BuildContext context) {
-    return detail_body(dogName: dogName, imagePath: imagePath,);
+    return detail_body(dogName: dogName, imagePath: imagePath, type: type, age: age,);
   }
 }
 /*

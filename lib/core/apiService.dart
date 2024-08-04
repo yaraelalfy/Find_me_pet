@@ -1,12 +1,36 @@
 import 'package:dio/dio.dart';
+import 'models/dog_model.dart';
 
-class api_service {
-  final baseUrl = "https://api.api-ninjas.com/v1/dogs?name=dog&X-Api-Key=GEQYLR9mqOb0W/7WGyXktw==LiOgJbdMXvw4tIjA";
-  final Dio dio;
+class DogApiService {
+  final Dio _dio = Dio();
+  final String _baseUrl = 'https://api.api-ninjas.com/v1/dogs';
+  final String _apiKey = 'GEQYLR9mqOb0W/7WGyXktw==LiOgJbdMXvw4tIjA';
 
-  api_service(this.dio);
-  Future<Map<String, dynamic>> get() async {
-    var response = await dio.get("$baseUrl");
-    return response.data;
+  Future<List<DogModel>> fetchDogs(String name) async {
+    try {
+      final response = await _dio.get(
+        _baseUrl,
+        queryParameters: {'name': name},
+        options: Options(
+          headers: {
+            'X-Api-Key': _apiKey,
+          },
+        ),
+      );
+      List<dynamic> data = response.data;
+      List<DogModel> dogList = data.map((dog) => DogModel.fromJson(dog)).toList();
+      return dogList;
+    } catch (e) {
+      print('Error fetching dogs: $e');
+      return [];
+    }
   }
 }
+void main() async {
+  final dogApiService = DogApiService();
+  List<DogModel> dogs = await dogApiService.fetchDogs('dog');
+  for (var dog in dogs) {
+    print('Name: ${dog.name}');
+  }
+}
+

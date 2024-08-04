@@ -1,3 +1,4 @@
+import 'package:findanimals/core/models/type.dart';
 import 'package:findanimals/core/styles.dart';
 import 'package:findanimals/features/detail/presentation/views/main_details.dart';
 import 'package:findanimals/features/home/presentation/manager/cubit.dart';
@@ -92,11 +93,12 @@ class AnimalCard extends StatelessWidget {
                   SizedBox(
                     width: 20,
                   ),
+                  Spacer(),
                   InkWell(
                     onTap: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (_) {
-                            return Details(dogName: dogName, imagePath: imagePath,);
+                            return Details(dogName: dogName, imagePath: imagePath, type: dogType, age: dogAge,);
                           }));
                     },
                     child: Icon(

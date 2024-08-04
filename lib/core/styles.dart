@@ -27,10 +27,12 @@ abstract class Fonts {
       fontSize: 16);
 
   static const dogType = TextStyle(
-      //fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.w900,
       color: Color.fromARGB(179, 0, 0, 0),
       //fontFamily: "Schyler",
-      fontSize: 18);
+      fontSize: 8.8
+      //fontSize: 8.937
+  );
 
   static const dogAge = TextStyle(
       //fontWeight: FontWeight.bold,
@@ -44,7 +46,7 @@ abstract class Fonts {
       Shadow(blurRadius: 5.0, color: Color.fromARGB(255, 94, 87, 87), offset: Offset(2, 2),)]);
 
   static const second = TextStyle(
-      fontWeight: FontWeight.bold,fontSize: 20,color: Colors.black38);
+      fontWeight: FontWeight.bold,fontSize: 17,color: Colors.black38);
 
   static const third = TextStyle(
       color:Color.fromARGB(255, 114, 108, 108));

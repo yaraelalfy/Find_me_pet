@@ -8,8 +8,8 @@ import 'fact_detail.dart';
 import 'photo.dart';
 
 class detail_body extends StatelessWidget {
-  const detail_body({super.key, required this.dogName, required this.imagePath});
-  final String dogName,imagePath;
+  const detail_body({super.key, required this.dogName, required this.imagePath, required this.type, required this.age});
+  final String dogName,imagePath,type,age;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class detail_body extends StatelessWidget {
       ),
       body: Column(
         children: [
-          fact_detail(dogName: dogName, imagePath:imagePath,),
+          fact_detail(dogName: dogName, imagePath:imagePath, type: type, age: age,),
           Photo(imagePath: imagePath,),
           About()
         ],

@@ -3,8 +3,8 @@ import 'package:findanimals/features/adopted_Animals/presentation/views/adapts.d
 import 'package:flutter/material.dart';
 
 class fact_detail extends StatefulWidget {
-  const fact_detail({super.key, required this.dogName, required this.imagePath});
-  final String dogName,imagePath;
+  const fact_detail({super.key, required this.dogName, required this.imagePath, required this.type, required this.age});
+  final String dogName,imagePath,type,age;
 
   @override
   State<fact_detail> createState() => _fact_detailState();
@@ -44,9 +44,9 @@ class _fact_detailState extends State<fact_detail> {
           ),
           Row(
             children: [
-              Text("RetrieverGolden",style: Fonts.second),
+              Text("${widget.type} ",style: Fonts.second),
               Spacer(),
-              Text("8 months old  ",style: Fonts.second),
+              Text("${widget.age}  month ",style: Fonts.second),
             ],
           ),
           Row(children: [
